@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'categories/new'
+  get 'categories/edit'
   get 'products/show'
   get 'products/new'
   get 'products/edit'
