@@ -1,10 +1,30 @@
 // ABOUT US SECTION
 .about-us {
-  height: 500px;
+  // height: 500px;
 }
 
 .background-color {
   background-color: #F4CCCD;
+}
+
+.about-LFN {
+  display: flex;
+}
+
+.about-LFN-image {
+  img {
+    width: 300px;
+  }
+}
+
+.about-Fine {
+  display: flex;
+}
+
+.about-Fine-image {
+  img {
+    width: 300px;
+  }
 }
 
 // CONTACT SECTION
@@ -17,3 +37,4 @@
 .products {
   height: 500px;
 }
+
