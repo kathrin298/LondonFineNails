@@ -1,29 +1,36 @@
+
+  h2 {
+    color: black;
+    font-weight: 300;
+  }
+
 // ABOUT US SECTION
-.about-us {
-  // height: 500px;
+.about-LFN-text, .about-Fine-text {
+  padding: 0 40px;
+  p {
+    text-align: justify;
+    color: black;
+    font-weight: 100;
+    font-size: 20px;
+  }
 }
 
 .background-color {
   background-color: #F4CCCD;
 }
 
-.about-LFN {
+.about-LFN, .about-Fine {
   display: flex;
+  margin: 40px;
 }
 
-.about-LFN-image {
+.about-LFN-image, .about-Fine-image {
+  background-color: white;
+  padding: 20px 20px 60px 20px;
+  box-shadow: 10px 10px 12px 0px rgba(150,150,150,0.3);
   img {
-    width: 300px;
-  }
-}
-
-.about-Fine {
-  display: flex;
-}
-
-.about-Fine-image {
-  img {
-    width: 300px;
+    border: 1px solid $gold;
+    width: 200px;
   }
 }
 
