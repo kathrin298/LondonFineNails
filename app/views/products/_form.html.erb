@@ -1,0 +1,13 @@
+<%= simple_form_for([category, product]) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :brand %>
+  <%= f.input :sku %>
+  <%= f.input :size %>
+  <%= f.input :color %>
+  <%= f.input :price %>
+  <%= f.association :category %>
+  <%= f.input :available%>
+  <%= f.input :photo, as: :file %>
+
+  <%= f.submit "Submit", class: "btn btn-gold" %>
+<% end %>

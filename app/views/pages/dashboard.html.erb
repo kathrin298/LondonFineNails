@@ -1,1 +1,12 @@
 <h1>Admin Dashboard</h1>
+
+<%= link_to 'Add new category', new_category_path, class: "btn btn-gold" %>
+
+<h2>All Categories</h2>
+<ul>
+  <%= @categories.each do |category| %>
+    <li><%= category.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add new product', new_product_path, class: "btn btn-gold" %>
