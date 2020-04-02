@@ -10,3 +10,18 @@
 </ul>
 
 <%= link_to 'Add new product', new_product_path, class: "btn btn-gold" %>
+
+<h2>All Products</h2>
+<ul>
+  <%= @products.each do |product| %>
+    <li>
+    <%= link_to product.name, product_path(product) %>
+      <%= link_to edit_product_path(product) do %>
+        <i class="fas fa-pen"></i>
+      <% end %>
+      <%= link_to product_path(product), method: :delete do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

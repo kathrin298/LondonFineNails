@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def show; end
@@ -29,7 +30,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   private
