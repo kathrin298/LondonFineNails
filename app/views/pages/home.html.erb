@@ -8,9 +8,21 @@
     </div>
 
     <!-- PRODUCT SECTION -->
-    <div class="container">
-      <div class="products py-5" id="products">
-        <h2>Products</h2>
+    <div class="container py-5" id="products">
+      <h2>Products</h2>
+      <div class="products">
+        <% @products.each do |product| %>
+          <div class="card-product">
+            <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+            <div class="card-product-infos">
+              <div>
+                <h2><%= product.name %></h2>
+                <p><%= product.color %></p>
+              </div>
+              <h2 class="card-product-pricing"><%= product.price %>€</h2>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
 

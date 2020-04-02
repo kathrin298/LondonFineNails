@@ -4,7 +4,7 @@
 
 <h2>All Categories</h2>
 <ul>
-  <%= @categories.each do |category| %>
+  <% @categories.each do |category| %>
     <li><%= category.name %></li>
   <% end %>
 </ul>
@@ -13,7 +13,7 @@
 
 <h2>All Products</h2>
 <ul>
-  <%= @products.each do |product| %>
+  <% @products.each do |product| %>
     <li>
     <%= link_to product.name, product_path(product) %>
       <%= link_to edit_product_path(product) do %>
