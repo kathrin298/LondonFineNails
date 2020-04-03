@@ -9,7 +9,7 @@
 
     <!-- PRODUCT SECTION -->
     <div class="container py-5" id="products">
-      <h2>Products</h2>
+      <h2>Our Lovely Product Range</h2>
       <div class="products">
         <% @products.each do |product| %>
           <div class="card-product">
@@ -17,9 +17,9 @@
             <div class="card-product-infos">
               <div>
                 <h2><%= product.name %></h2>
-                <p><%= product.color %></p>
+                <p>Color: <%= product.color %></p>
               </div>
-              <h2 class="card-product-pricing"><%= product.price %>€</h2>
+              <h2 class="card-product-pricing"><%= product.price.round(2) %>€</h2>
             </div>
           </div>
         <% end %>
@@ -66,5 +66,6 @@
     <div class="container">
       <div class="contact py-5" id="contact">
         <h2>Contact</h2>
+        <%= image_tag("Insta Nametag LFN.png", class: "avatar-square") %>
       </div>
     </div>

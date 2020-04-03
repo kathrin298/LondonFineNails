@@ -43,5 +43,7 @@
 // PRODUCTS SECTION
 .products {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
 }
 
