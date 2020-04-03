@@ -7,6 +7,20 @@
   border-radius: 2px;
 }
 
+.products a {
+  p {
+    color: $gray;
+  }
+}
+
+.products a:hover {
+  text-decoration: none;
+
+  .card-product {
+    border: 1px solid $gold;
+  }
+}
+
 .card-product > img {
   height: 200px;
   width: 100%;
