@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_02_160307) do
+ActiveRecord::Schema.define(version: 2020_04_06_150739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,25 @@ ActiveRecord::Schema.define(version: 2020_04_02_160307) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  create_table "shopping_bag_products", force: :cascade do |t|
+    t.bigint "product_id"
+    t.integer "quantity", default: 1
+    t.bigint "shopping_bag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_shopping_bag_products_on_product_id"
+    t.index ["shopping_bag_id"], name: "index_shopping_bag_products_on_shopping_bag_id"
+  end
+
+  create_table "shopping_bags", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "total_amount"
+    t.integer "total_items"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shopping_bags_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -71,4 +90,7 @@ ActiveRecord::Schema.define(version: 2020_04_02_160307) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "products", "categories"
+  add_foreign_key "shopping_bag_products", "products"
+  add_foreign_key "shopping_bag_products", "shopping_bags"
+  add_foreign_key "shopping_bags", "users"
 end
