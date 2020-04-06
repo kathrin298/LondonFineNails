@@ -1,2 +1,18 @@
-<h1>ShoppingBags#show</h1>
-<p>Find me in app/views/shopping_bags/show.html.erb</p>
+<div class="container">
+  <h1>Your Shopping Bag</h1>
+
+  <ul>
+    <% @products_in_bag.each do |product, quantity| %>
+    <li>
+      <%= quantity %> x <%= link_to product.name, product_path(product) %>
+
+      <%= link_to shopping_bag_product_path(product.shopping_bag_products[0]), method: :delete do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+
+    </li>
+
+    <% end %>
+  </ul>
+</div>
+

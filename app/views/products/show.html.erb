@@ -8,8 +8,12 @@
       <p>Color: <%= @product.color %> / <%= @product.size %></p>
       <p>product description goes here</p>
       <p class="btn btn-gold" id="price-button"><%= @product.price %>€</p>
-      <%= link_to product_shopping_bag_products_path(@product), method: :post do %>
-        <p class="btn btn-gold">Add to Shopping Bag</p>
+      <% if current_user.shopping_bag.shopping_bag_products.include?(ShoppingBagProduct.where(product_id: @product.id)[0]) %>
+        <p>This product is already in your shopping bag. <%= link_to 'See shopping bag', shopping_bag_path(current_user.shopping_bag) %></p>
+      <% else %>
+        <%= link_to product_shopping_bag_products_path(@product), method: :post do %>
+          <p class="btn btn-gold">Add to Shopping Bag</p>
+        <% end %>
       <% end %>
     </div>
   </div>

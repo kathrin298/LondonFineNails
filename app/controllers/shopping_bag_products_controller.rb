@@ -1,5 +1,6 @@
 class ShoppingBagProductsController < ApplicationController
   before_action :find_product, only: [:create]
+  before_action :find_shopping_bag_product, only: [:destroy]
 
   def create
     if current_user.shopping_bag
@@ -21,12 +22,17 @@ class ShoppingBagProductsController < ApplicationController
   end
 
   def destroy
-
+    @shopping_bag_product.destroy
+    redirect_to shopping_bag_path(current_user.shopping_bag)
   end
 
   private
 
   def find_product
     @product = Product.find(params[:product_id])
+  end
+
+  def find_shopping_bag_product
+    @shopping_bag_product = ShoppingBagProduct.find(params[:id])
   end
 end

@@ -1,7 +1,10 @@
 class ShoppingBagsController < ApplicationController
   before_action :find_shopping_bag
 
-  def show; end
+  def show
+    @products_in_bag = {}
+    @shopping_bag.shopping_bag_products.each { |sh_product| @products_in_bag[sh_product.product] = sh_product.quantity}
+  end
 
   private
 
