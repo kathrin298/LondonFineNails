@@ -8,6 +8,9 @@
       <p>Color: <%= @product.color %> / <%= @product.size %></p>
       <p>product description goes here</p>
       <p class="btn btn-gold" id="price-button"><%= @product.price %>€</p>
+      <%= link_to product_shopping_bag_products_path(@product), method: :post do %>
+        <p class="btn btn-gold">Add to Shopping Bag</p>
+      <% end %>
     </div>
   </div>
 
