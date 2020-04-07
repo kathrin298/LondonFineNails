@@ -1,9 +1,9 @@
 class ShoppingBagsController < ApplicationController
   before_action :find_shopping_bag
+  before_action :authenticate_user!
 
   def show
-    @products_in_bag = {}
-    @shopping_bag.shopping_bag_products.each { |sh_product| @products_in_bag[sh_product.product] = sh_product.quantity}
+    @products_in_bag = @shopping_bag.shopping_bag_products
   end
 
   private

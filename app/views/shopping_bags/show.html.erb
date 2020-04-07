@@ -2,29 +2,29 @@
   <h1>Your Shopping Bag</h1>
 
   <ul>
-    <% @products_in_bag.each do |product, quantity| %>
+    <% @products_in_bag.each do |sh_product| %>
     <li>
-      <%= quantity %> x <%= link_to product.name, product_path(product) %>
-
+      <%= sh_product.quantity %> x <%= link_to sh_product.product.name, product_path(sh_product.product) %>
+      (<%= sh_product.product.price %>€)
       <%= link_to '+',
-             shopping_bag_product_path(product.shopping_bag_products[0],
-             :shopping_bag_product => {quantity: product.shopping_bag_products[0].quantity + 1}),
+             shopping_bag_product_path(sh_product,
+             :shopping_bag_product => {quantity: sh_product.quantity + 1}),
              method: :patch, class: "btn btn-gold" %>
 
-      <% if product.shopping_bag_products[0].quantity > 1 %>
+      <% if sh_product.quantity > 1 %>
         <%= link_to '-',
-               shopping_bag_product_path(product.shopping_bag_products[0],
-               :shopping_bag_product => {quantity: product.shopping_bag_products[0].quantity - 1}),
+               shopping_bag_product_path(sh_product,
+               :shopping_bag_product => {quantity: sh_product.quantity - 1}),
                method: :patch, class: "btn btn-gold" %>
       <% end %>
 
-      <%= link_to shopping_bag_product_path(product.shopping_bag_products[0]), method: :delete do %>
+      <%= link_to shopping_bag_product_path(sh_product), method: :delete do %>
         <i class="fas fa-trash"></i>
       <% end %>
 
     </li>
-
     <% end %>
+    <li><%= @shopping_bag.total_items %> items @ <%= @shopping_bag.total_amount %>€</li>
   </ul>
 </div>
 
