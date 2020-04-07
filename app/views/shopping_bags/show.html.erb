@@ -6,6 +6,18 @@
     <li>
       <%= quantity %> x <%= link_to product.name, product_path(product) %>
 
+      <%= link_to '+',
+             shopping_bag_product_path(product.shopping_bag_products[0],
+             :shopping_bag_product => {quantity: product.shopping_bag_products[0].quantity + 1}),
+             method: :patch, class: "btn btn-gold" %>
+
+      <% if product.shopping_bag_products[0].quantity > 1 %>
+        <%= link_to '-',
+               shopping_bag_product_path(product.shopping_bag_products[0],
+               :shopping_bag_product => {quantity: product.shopping_bag_products[0].quantity - 1}),
+               method: :patch, class: "btn btn-gold" %>
+      <% end %>
+
       <%= link_to shopping_bag_product_path(product.shopping_bag_products[0]), method: :delete do %>
         <i class="fas fa-trash"></i>
       <% end %>

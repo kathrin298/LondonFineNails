@@ -1,6 +1,6 @@
 class ShoppingBagProductsController < ApplicationController
   before_action :find_product, only: [:create]
-  before_action :find_shopping_bag_product, only: [:destroy]
+  before_action :find_shopping_bag_product, only: [:update, :destroy]
 
   def create
     if current_user.shopping_bag
@@ -18,7 +18,8 @@ class ShoppingBagProductsController < ApplicationController
   end
 
   def update
-
+    @shopping_bag_product.update(shopping_bag_product_params)
+    redirect_to shopping_bag_path(current_user.shopping_bag)
   end
 
   def destroy
@@ -27,6 +28,10 @@ class ShoppingBagProductsController < ApplicationController
   end
 
   private
+
+  def shopping_bag_product_params
+    params.require(:shopping_bag_product).permit(:quantity)
+  end
 
   def find_product
     @product = Product.find(params[:product_id])
