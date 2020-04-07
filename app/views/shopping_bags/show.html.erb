@@ -26,5 +26,10 @@
     <% end %>
     <li><%= @shopping_bag.total_items %> items @ <%= @shopping_bag.total_amount %>€</li>
   </ul>
+
+  <%= form_tag orders_path, method: :post do %>
+    <%= submit_tag 'Go to checkout', class: 'btn btn-gold' %>
+  <% end %>
+
 </div>
 

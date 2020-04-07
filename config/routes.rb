@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   resources :shopping_bags, only: [:show]
 
+  resources :orders, only: [:index, :show, :create] do
+    resources :payments, only: :new
+  end
+
   get 'dashboard', to: 'pages#dashboard'
 
 end
