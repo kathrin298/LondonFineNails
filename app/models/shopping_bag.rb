@@ -1,6 +1,6 @@
 class ShoppingBag < ApplicationRecord
   belongs_to :user
-  has_many :shopping_bag_products
+  has_many :shopping_bag_products, dependent: :destroy
 
   def total_amount
     total = 0
