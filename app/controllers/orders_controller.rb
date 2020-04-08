@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.all
+    @orders = Order.all.sort { |a, b| b <=> a }
   end
 
   def show
@@ -19,7 +19,6 @@ class OrdersController < ApplicationController
       payment_method_types: ['card'],
       line_items: [{
         name: "Order No.#{order.id}",
-        images: [@shopping_bag.shopping_bag_products[0].product.photo],
         amount: (@shopping_bag.total_amount * 100).to_i,
         currency: 'eur',
         quantity: 1
