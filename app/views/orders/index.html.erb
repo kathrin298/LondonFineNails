@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Your recent orders</h1>
+
+  <% @orders.each do |order| %>
+    <div class="card border-secondary mb-3">
+      <div class="card-header bg-transparent border-secondary">Order(#<%= order.id %>) from <%= order.updated_at %></div>
+      <div class="card-body">
+
+        <% order.order_products.each do |o_product| %>
+          <div class="card-o-product">
+            <%= cl_image_tag o_product.product.photo.key, height: 50, width: 50, crop: :fill %>
+            <div class="card-o-product-infos">
+              <h2><%= o_product.product.name %></h2>
+              <p><%= o_product.quantity %> x @ <%= o_product.product.price %>€ each</p>
+            </div>
+          </div>
+
+
+        <% end %>
+
+      </div>
+      <div class="card-footer bg-transparent border-secondary">Order total: <%= order.amount %>€</div>
+    </div>
+  <% end %>
+</div>
