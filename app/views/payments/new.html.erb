@@ -3,7 +3,7 @@
     <div class="col-md-3"><%= image_tag 'nails_pink.jpg', width: '100%' %></div>
     <div class="col">
       <h1>Checkout summary</h1>
-      <p>Your Order for <strong><%= @order.amount %></strong></p>
+      <p>Your Order for <strong><%= @order.amount.round(2) %>€</strong></p>
       <ul>
         <% @order.order_products.each do |o_product| %>
           <li>
