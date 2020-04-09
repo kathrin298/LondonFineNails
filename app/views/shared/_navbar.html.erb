@@ -27,9 +27,15 @@
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <%= image_tag "user.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.shopping_bag.total_items > 0 %>
+            <p id="bag-count"><%= current_user.shopping_bag.total_items %></p>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" if current_user.admin %>
-            <%= link_to "Shopping Bag", shopping_bag_path(current_user.shopping_bag), class: "dropdown-item" if current_user.shopping_bag%>
+            <%= link_to "Shopping Bag", shopping_bag_path(current_user.shopping_bag), class: "dropdown-item shopping_bag" if current_user.shopping_bag%>
+            <% if current_user.shopping_bag.total_items > 0 %>
+              <p id="bag-count-dropdown" class="dropdown-item"><%= current_user.shopping_bag.total_items %></p>
+            <% end %>
             <%= link_to "Orders", orders_path, class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
@@ -40,6 +46,7 @@
           <%= image_tag "user.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Login", new_user_session_path, class: "dropdown-item"%>
+            <div class="dropdown-divider"></div>
             <%= link_to "Signup", new_user_registration_path, class: "dropdown-item" %>
           </div>
         </li>

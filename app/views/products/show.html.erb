@@ -9,6 +9,7 @@
       <p>product description goes here</p>
       <p class="btn btn-gold" id="price-button"><%= @product.price %>€</p>
 
+      <% if user_signed_in? %>
         <% if current_user.shopping_bag.nil? %>
           <%= link_to product_shopping_bag_products_path(@product), method: :post do %>
             <p class="btn btn-gold">Add to Shopping Bag</p>
@@ -20,7 +21,7 @@
             <p class="btn btn-gold">Add to Shopping Bag</p>
           <% end %>
         <% end %>
-
+      <% end %>
     </div>
   </div>
 

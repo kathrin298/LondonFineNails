@@ -27,6 +27,41 @@
   margin-left: 10px;
 }
 
+.nav-item.dropdown {
+  position: relative;
+  & > #bag-count {
+    position: absolute;
+    top: -3px;
+    right: -7px;
+    background-color: black;
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+.dropdown-item.shopping_bag {
+  position: relative;
+}
+  #bag-count-dropdown {
+    position: absolute;
+    top: 42px;
+    right: 29px;
+    background-color: black;
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    padding: 0;
+  }
+
 .active {
   background-color: $pink;
 }
