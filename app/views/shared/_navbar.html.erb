@@ -21,6 +21,9 @@
       <li class="nav-item">
         <a class="nav-link" href="#contact">Contact</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">FAQ</a>
+      </li>
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <%= image_tag "user.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -28,6 +31,7 @@
             <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" if current_user.admin %>
             <%= link_to "Shopping Bag", shopping_bag_path(current_user.shopping_bag), class: "dropdown-item" if current_user.shopping_bag%>
             <%= link_to "Orders", orders_path, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

@@ -23,3 +23,18 @@
   border: 1px solid $gold;
 }
 
+.nav-item.dropdown img {
+  margin-left: 10px;
+}
+
+.active {
+  background-color: $pink;
+}
+
+.nav-link {
+  margin: 0 20px;
+}
+
+.navbar {
+  padding-bottom: 0;
+}
