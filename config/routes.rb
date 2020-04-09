@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  #devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard'
   resources :categories, only: [:new, :create, :edit, :update, :destroy]
