@@ -2,16 +2,18 @@
   <h2>Our Lovely Product Range</h2>
   <div class="products">
     <% @products.each do |product| %>
-      <div class="card-product">
-        <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
-        <div class="card-product-infos">
-          <div>
-            <h2><%= product.name %></h2>
-            <p>Color: <%= product.color %></p>
+      <%= link_to product_path(product) do  %>
+        <div class="card-product">
+          <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+          <div class="card-product-infos">
+            <div>
+              <h2><%= product.name %></h2>
+              <p>Color: <%= product.color %></p>
+            </div>
+            <h2 class="card-product-pricing"><%= product.price.round(2) %>€</h2>
           </div>
-          <h2 class="card-product-pricing"><%= product.price.round(2) %>€</h2>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
