@@ -2,7 +2,7 @@
   <h1>Your recent orders</h1>
 
   <% if @orders.empty? %>
-    <p>You don't have any past orders. Start browsing our <%= link_to "products", root_path %> now.</p>
+    <p>You don't have any past orders. Start browsing our <%= link_to "products", products_path %> now.</p>
   <% else %>
     <% @orders.each do |order| %>
       <div class="card border-secondary mb-3">

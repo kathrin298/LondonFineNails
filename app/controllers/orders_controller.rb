@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.all.sort { |a, b| b <=> a }
+    @orders = Order.where(user: current_user, state: 'paid').sort { |a, b| b <=> a }
   end
 
   def show
