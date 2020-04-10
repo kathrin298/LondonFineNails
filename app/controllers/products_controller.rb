@@ -3,20 +3,23 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
+    @products = policy_scope(Product).order(created_at: :desc)
   end
 
   def show
+    authorize @product
     @recommended_products = Product.where(["category_id = ? or 'color' = ?", @product.category, @product.color]).sample(4)
   end
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def create
     @product = Product.new(product_params)
     @product.category = find_category
+    authorize @product
     if @product.save
       redirect_to product_path(@product)
     else
@@ -24,9 +27,12 @@ class ProductsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @product
+  end
 
   def update
+    authorize @product
     if @product.update(product_params)
       redirect_to product_path
     else
@@ -35,6 +41,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    authorize @product
     @product.destroy
     redirect_to dashboard_path
   end

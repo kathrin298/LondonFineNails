@@ -3,6 +3,7 @@ class ShoppingBagsController < ApplicationController
   before_action :authenticate_user!
 
   def show
+    authorize @shopping_bag
     @products_in_bag = @shopping_bag.shopping_bag_products
   end
 

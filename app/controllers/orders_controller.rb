@@ -1,11 +1,12 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.where(user: current_user, state: 'paid').sort { |a, b| b <=> a }
+    @orders = policy_scope(Order).where(user: current_user, state: 'paid').sort { |a, b| b <=> a }
   end
 
   def show
     @order = current_user.orders.find(params[:id])
+    authorize @order
   end
 
   def create
@@ -14,6 +15,8 @@ class OrdersController < ApplicationController
     @shopping_bag.shopping_bag_products.each do |sh_product|
       OrderProduct.create(product: sh_product.product, quantity: sh_product.quantity, order: order)
     end
+
+    authorize order
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],

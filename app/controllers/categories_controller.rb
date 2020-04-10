@@ -3,10 +3,12 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    authorize @category
   end
 
   def create
     @category = Category.new(category_params)
+    authorize @category
     if @category.save
       redirect_to dashboard_path
     else
@@ -14,9 +16,12 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @category
+  end
 
   def update
+    authorize @category
     if @category.update(category_params)
       redirect_to dashboard_path
     else
@@ -25,6 +30,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
+    authorize @category
     @category.destroy
     redirect_to dashboard_path
   end
