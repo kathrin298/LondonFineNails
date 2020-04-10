@@ -2,6 +2,10 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @products = Product.all
+  end
+
   def show
     @recommended_products = Product.where(["category_id = ? or 'color' = ?", @product.category, @product.color]).sample(4)
   end
