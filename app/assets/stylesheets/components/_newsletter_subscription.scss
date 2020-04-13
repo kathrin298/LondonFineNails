@@ -1,0 +1,21 @@
+.newsletter-container {
+  padding: 20px 0;
+  background-color: #F9EADF;
+  h2, p {
+    text-align: center;
+    color: black;
+    font-family: 'GFS Didot', serif;
+  }
+  h2 {
+    color: #AC8B6C;
+  }
+  form {
+    display: flex;
+  }
+  .submit-button {
+    background-color: black;
+    color: white;
+    font-weight: lighter;
+    padding: 5px 15px;
+  }
+}

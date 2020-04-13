@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  #devise_for :users
   devise_for :users, controllers: { registrations: 'users/registrations' }
+
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard'
   get 'about', to: 'pages#about'
@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :show, :create] do
     resources :payments, only: :new
   end
+
+  resources :subscribers, only: [:create]
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 end
