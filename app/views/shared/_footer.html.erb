@@ -1,9 +1,33 @@
-<div class="footer fixed-bottom">
-  <div class="footer-links">
+<div class="footer">
+  <!-- Social links -->
+  <div class="footer-socials">
     <a href="https://www.instagram.com/londonfinenails/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/LondonFineNails" target="_blank"><i class="fab fa-facebook"></i></a>
   </div>
-  <div class="footer-copyright">
-    @ 2020 LondonFineNails <i class="fas fa-heart"></i>
-    <%= link_to 'Legal Disclosure', legal_path %>
+<!-- links to other pages on website -->
+  <div class="footer-links">
+    <div class="footer-links-container">
+      <p>FineNailsLondon</p>
+      <ul>
+        <li><%= link_to 'About us', about_path %></li>
+      </ul>
+    </div>
+    <div class="footer-links-container">
+      <p>Service & Shopping</p>
+      <ul>
+        <li><%= link_to 'Our Products', products_path %></li>
+        <li>Payment</li>
+        <li>Shipping</li>
+        <li>Returns</li>
+      </ul>
+    </div>
+    <div class="footer-links-container">
+      <p>Contact & Help</p>
+      <ul>
+        <li>Customer Support</li>
+        <li><%= link_to 'FAQs', faq_path %></li>
+        <li><%= link_to 'Legal Disclosure', legal_path %></li>
+      </ul>
+    </div>
   </div>
 </div>
