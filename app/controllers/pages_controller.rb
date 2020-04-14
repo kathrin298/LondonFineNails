@@ -9,4 +9,8 @@ class PagesController < ApplicationController
     @categories = Category.all
     @products = Product.all
   end
+
+  def contact
+    @contact = Contact.new(params[:contact])
+  end
 end

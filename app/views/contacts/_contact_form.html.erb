@@ -1,0 +1,28 @@
+<%= form_for @contact, url: contacts_path, remote: true do |f| %>
+    <div class="col-md-6 contact-form">
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <%= f.text_field  :name, required: true, placeholder: "Name", class: "contact-form-text-area form-control" %></br>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+            <%= f.text_field :email, required: true, placeholder: "Email", class: "contact-form-text-area form-control" %></br>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_area :message, rows: 8, cols: 40, required: true, class: "contact-form-text-area form-control",
+                          placeholder: "Send us a message"%></br>
+      </div>
+
+      <%= f.submit 'Send Message', class: 'btn btn-gold' %>
+    </div>
+  <% end %>
+
+  <div class="col-md-6" id="flash-message">
+    <%= render '/shared/flashes' %>
+  </div>

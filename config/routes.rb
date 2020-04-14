@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :subscribers, only: [:create]
+  resources :contacts, only: [:new, :create]
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 end

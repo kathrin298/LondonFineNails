@@ -19,6 +19,9 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'stripe'
 gem 'stripe_event'
 gem 'pundit'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem 'mail_form'
+gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

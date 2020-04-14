@@ -1,0 +1,3 @@
+// Render flash message
+$('#contact').html("<%= j render '/contacts/contact_form' %>");
+$('#flash-message').html("<%= j render '/shared/flashes' %>").delay(3000).fadeOut(4000);
