@@ -3,12 +3,12 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = policy_scope(Product).order(created_at: :desc)
+    @products = policy_scope(Product).order(created_at: :desc).where("available = true")
   end
 
   def show
     authorize @product
-    @recommended_products = Product.where(["category_id = ? or 'color' = ?", @product.category, @product.color]).sample(4)
+    @recommended_products = Product.where(["available = true and category_id = ? or 'color' = ?", @product.category, @product.color]).sample(4)
   end
 
   def new
