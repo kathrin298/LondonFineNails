@@ -1,7 +1,7 @@
 class ProductPolicy < ApplicationPolicy
 
   def show?
-    true
+    true if record.available || user.admin
   end
 
   def create?
