@@ -2,31 +2,37 @@
   background: white;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 50px;
+  padding: 0px 120px;
   color: rgba(0,0,0,0.3);
 }
+
+@media (max-width: 700px) {
+  .footer {
+    padding: 0px 50px;
+  }
+}
+
 .footer-socials {
   display: flex;
   justify-content: center;
 }
 .footer-socials a {
   color: black;
-  opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
   margin: 20px 10px;
 }
 .footer-socials a:hover {
-  opacity: 1;
-}
-.footer .fa-heart {
-  color: #D23333;
+  color: $pink;
 }
 
 .footer-links {
   display: flex;
   justify-content: space-evenly;
+  .row {
+    width: 100%;
+  }
 }
 
 .footer-links ul {
@@ -34,19 +40,26 @@
   padding: 0;
   margin: 0;
 
-  li {
+  li a {
     color: black;
-    font-family: 'GFS Didot', serif;
+    font-family: "Yantramanav", "Helvetica", "sans-serif";
+    font-weight: 100;
   }
+}
+
+.footer-links ul li a:hover {
+  text-decoration: none;
+  color: $gray;
 }
 
 .footer-links-container {
   width: 200px;
+  margin-bottom: 20px;
   p {
     color: black;
     font-weight: bold;
     border-bottom: 1px solid black;
-    font-family: 'GFS Didot', serif;
-
+    font-family: 'GFS Didot', "sans-serif";
+    margin-bottom: 8px;
   }
 }
