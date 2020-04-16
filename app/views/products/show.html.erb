@@ -7,7 +7,7 @@
     <div class="product-description-container col-12 col-sm-6 col-lg-4">
       <p class="mb-0 url-path"><a href=<%= root_path %>>Home</a> > <a href=<%= products_path %>>Shop</a> > <%= @product.name %></p>
       <h1><%= @product.name %></h1>
-      <p class="product-pricetag"><%= @product.price %> €</p>
+      <p class="product-pricetag"><%= number_to_currency(@product.price, locale: :de)%></p>
       <p><%= @product.category.name %> / <%= @product.size %></p>
       <p><%= @product.description %></p>
       <p class="mb-0">Colors:</p>
@@ -44,7 +44,7 @@
                 <h2><%= product.name %></h2>
                 <p>Color: <%= product.color.name if product.color %></p>
               </div>
-              <h2 class="card-product-pricing"><%= product.price.round(2) %>€</h2>
+              <h2 class="card-product-pricing"><%= number_to_currency(product.price, locale: :de) %></h2>
             </div>
           </div>
         <% end %>
