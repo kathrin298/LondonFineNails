@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   def dashboard
     @categories = Category.all
     @products = Product.all
+    @colors = Color.all
   end
 
   def contact

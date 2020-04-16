@@ -3,9 +3,10 @@
   <%= f.input :brand %>
   <%= f.input :sku %>
   <%= f.input :size %>
-  <%= f.input :color %>
+  <%= f.association :color %>
   <%= f.input :price %>
   <%= f.association :category %>
+  <%= f.input :description %>
   <%= f.input :available%>
   <%= f.input :photo, as: :file %>
 

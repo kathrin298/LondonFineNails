@@ -8,7 +8,7 @@
           <div class="card-product-infos">
             <div>
               <h2><%= product.name %></h2>
-              <p>Color: <%= product.color %></p>
+              <p>Color: <%= product.color.name if product.color %></p>
             </div>
             <h2 class="card-product-pricing"><%= product.price.round(2) %>€</h2>
           </div>

@@ -16,6 +16,22 @@
       </li>
     <% end %>
   </ul>
+    <br>
+  <%= link_to 'Add new color', new_color_path, class: "btn btn-gold" %>
+  <h2>All Colors</h2>
+  <ul>
+    <% @colors.each do |color| %>
+      <li>
+        <%= color.name %>
+        <%= link_to edit_color_path(color) do %>
+          <i class="fas fa-pen"></i>
+        <% end %>
+        <%= link_to color_path(color), method: :delete do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+      </li>
+    <% end %>
+  </ul>
   <br>
   <%= link_to 'Add new product', new_product_path, class: "btn btn-gold" %>
   <h2>All Products</h2>

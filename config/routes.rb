@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'colors/new'
+  get 'colors/edit'
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   root to: 'pages#home'
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   get 'legal', to: 'pages#legal'
 
   resources :categories, only: [:new, :create, :edit, :update, :destroy]
+  resources :colors, only: [:new, :create, :edit, :update, :destroy]
 
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :shopping_bag_products, only: [:create]

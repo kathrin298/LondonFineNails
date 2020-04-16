@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 
   def show
     authorize @product
-    @recommended_products = Product.where(["available = true and category_id = ? or 'color' = ?", @product.category, @product.color]).sample(4)
+    @recommended_products = Product.where(["available = true and category_id = ? or color_id = ?", @product.category, @product.color]).sample(4)
   end
 
   def new
@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.category = find_category
+    @product.color = find_color
     authorize @product
     if @product.save
       redirect_to product_path(@product)
@@ -56,7 +57,11 @@ class ProductsController < ApplicationController
     @category = Category.find(params[:product][:category_id])
   end
 
+    def find_color
+    @color = Color.find(params[:product][:color_id])
+  end
+
   def product_params
-    params.require(:product).permit(:name, :brand, :sku, :size, :color, :available, :price, :category, :photo)
+    params.require(:product).permit(:name, :brand, :sku, :size, :color_id, :available, :price, :category, :photo, :description)
   end
 end

@@ -1,20 +1,30 @@
 <div class="container">
 
   <!-- Product Section -->
-  <div class="product-container">
-    <%= cl_image_tag @product.photo.key, height: 500, width: 350, crop: :fill %>
-    <div class="product-description-container">
+  <div class="product-container row justify-content-center">
+    <div class="col-12 col-sm-6 col-lg-4 product-image">
+      <%= cl_image_tag @product.photo.key, crop: :fill %>
+    </div>
+    <div class="product-description-container col-12 col-sm-6 col-lg-4">
       <h1><%= @product.name %></h1>
-      <p>Color: <%= @product.color %> / <%= @product.size %></p>
-      <p>product description goes here</p>
-      <p class="btn btn-gold" id="price-button"><%= @product.price %>€</p>
+      <p class="product-pricetag"><%= @product.price %> €</p>
+      <p><%= @product.category.name %> / <%= @product.size %></p>
+      <p><%= @product.description %></p>
+      <p class="mb-0">Colors:</p>
+      <div class="product-color-container">
+        <a class="color-link">
+          <div class="product-color" style="background-color: <%= @product.color.color_code%>">
+          </div>
+          <p class="color-name"><%= @product.color.name %></p>
+        </a>
+      </div>
 
       <% if user_signed_in? %>
         <% if ShoppingBagProduct.where(product_id: @product.id, shopping_bag_id: current_user.shopping_bag.id).exists? %>
           <p>This product is already in your shopping bag. <%= link_to 'See shopping bag', shopping_bag_path(current_user.shopping_bag) %></p>
         <% else %>
           <%= link_to product_shopping_bag_products_path(@product), method: :post do %>
-            <p class="btn btn-gold">Add to Shopping Bag</p>
+            <p class="btn btn-gold w-100">Add to Shopping Bag <i class="fas fa-shopping-bag"></i></p>
           <% end %>
         <% end %>
       <% end %>
@@ -32,7 +42,7 @@
             <div class="card-product-infos">
               <div>
                 <h2><%= product.name %></h2>
-                <p>Color: <%= product.color %></p>
+                <p>Color: <%= product.color.name if product.color %></p>
               </div>
               <h2 class="card-product-pricing"><%= product.price.round(2) %>€</h2>
             </div>
