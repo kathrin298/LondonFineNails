@@ -16,7 +16,7 @@
             <div class="card-product-infos">
               <div>
                 <h2><%= product.name %></h2>
-                <p>Color: <%= product.color %></p>
+                <p>Color: <%= product.color.name %></p>
               </div>
               <h2 class="card-product-pricing"><%= number_to_currency(product.price, locale: :de) %></h2>
             </div>
