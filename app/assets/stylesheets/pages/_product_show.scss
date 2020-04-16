@@ -49,8 +49,6 @@
 }
 
 .product-description-container {
-
-
   p {
     color: black;
     font-weight: 100;
@@ -65,4 +63,16 @@
 h1 {
   color: black;
   font-weight: 100;
+}
+
+.url-path {
+  font-size: 0.9rem;
+
+  a {
+    color: black;
+  }
+  a:hover {
+    text-decoration: none;
+    color: $gray;
+  }
 }

@@ -1,11 +1,11 @@
 <div class="container">
-
   <!-- Product Section -->
   <div class="product-container row justify-content-center">
     <div class="col-12 col-sm-6 col-lg-4 product-image">
       <%= cl_image_tag @product.photo.key, crop: :fill %>
     </div>
     <div class="product-description-container col-12 col-sm-6 col-lg-4">
+      <p class="mb-0 url-path"><a href=<%= root_path %>>Home</a> > <a href=<%= products_path %>>Shop</a> > <%= @product.name %></p>
       <h1><%= @product.name %></h1>
       <p class="product-pricetag"><%= @product.price %> €</p>
       <p><%= @product.category.name %> / <%= @product.size %></p>
