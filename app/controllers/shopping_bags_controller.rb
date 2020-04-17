@@ -4,7 +4,7 @@ class ShoppingBagsController < ApplicationController
 
   def show
     authorize @shopping_bag
-    @products_in_bag = @shopping_bag.shopping_bag_products
+    @products_in_bag = @shopping_bag.shopping_bag_products.sort
   end
 
   private
