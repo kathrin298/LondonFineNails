@@ -4,6 +4,7 @@
     <div class="col-12 col-sm-6 col-lg-4 product-image">
       <%= cl_image_tag @product.photo.key, crop: :fill %>
     </div>
+
     <div class="product-description-container col-12 col-sm-6 col-lg-4">
       <p class="mb-0 url-path"><a href=<%= root_path %>>Home</a> > <a href=<%= products_path %>>Shop</a> > <%= @product.name %></p>
       <h1><%= @product.name %></h1>
@@ -18,7 +19,7 @@
           <p class="color-name"><%= @product.color.name %></p>
         </a>
       </div>
-
+      <!-- shopping bag button is user signed in -->
       <% if user_signed_in? %>
         <% if ShoppingBagProduct.where(product_id: @product.id, shopping_bag_id: current_user.shopping_bag.id).exists? %>
           <p>This product is already in your shopping bag. <%= link_to 'See shopping bag', shopping_bag_path(current_user.shopping_bag) %></p>
@@ -33,24 +34,24 @@
 
   <!-- Recommended Products Section -->
   <h1>Recommended Products</h1>
-  <div class="recommendations-container mb-5">
-    <div class="products">
-      <% @recommended_products.each do |product| %>
-        <%= link_to product_path(product) do  %>
-          <div class="card-product">
-            <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
-            <div class="card-product-infos">
-              <div>
-                <h2><%= product.name %></h2>
-                <p>Color: <%= product.color.name if product.color %></p>
-              </div>
-              <h2 class="card-product-pricing"><%= number_to_currency(product.price, locale: :de) %></h2>
-            </div>
+  <div class="products row justify-content-start">
+    <% @recommended_products.each do |product| %>
+      <%= link_to product_path(product), class:"col-12 col-sm-6 col-md-4 col-lg-3" do  %>
+        <div class="card-product">
+          <%= cl_image_tag product.photo.key, height: 500, crop: :fill %>
+          <div class="card-product-hover">
+            <div class="product-color-small" style="background-color: <%= product.color.color_code%>"></div>
           </div>
-        <% end %>
+          <div class="card-product-infos">
+            <div>
+              <h2><%= product.name %></h2>
+              <p class="font-100"><%= product.category.name %></p>
+            </div>
+            <h2 class="card-product-pricing"><%= number_to_currency(product.price, locale: :de) %></h2>
+          </div>
+        </div>
       <% end %>
-    </div>
-
+    <% end %>
   </div>
 </div>
 

@@ -1,10 +1,12 @@
 .card-product {
   overflow: hidden;
   background: white;
-  width: 200px;
-  margin: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  max-width: 200px;
+  min-width: 130px;
+  margin: 20px auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
   border-radius: 2px;
+  position: relative;
 }
 
 .products a {
@@ -16,20 +18,37 @@
 .products a:hover {
   text-decoration: none;
 
-  .card-product {
-    border: 1px solid $gold;
+  .card-product-hover {
+    opacity: 1;
+    position: absolute;
+    bottom: 68px;
+    background-color: rgba(255,255,255,0.5);
+    width: 100%;
+    padding: 8px;
   }
 }
 
+.card-product-hover {
+  opacity: 0;
+  position: absolute;
+
+}
+
+.product-color-small {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
 .card-product > img {
-  height: 200px;
+  height: 250px;
   width: 100%;
   object-fit: cover;
 }
 
 .card-product h2 {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 100;
   margin: 0;
 }
 
