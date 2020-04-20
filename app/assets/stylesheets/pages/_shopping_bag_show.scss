@@ -1,3 +1,20 @@
 .shopping-bag-container {
   display: flex;
 }
+
+.shopping-bag-checkout {
+  padding: 0 16px;
+  margin: 0 5px;
+
+  p {
+    font-weight: 100;
+    font-family: "GFS DIDOT";
+    color: black;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    font-family: 'GFS DIDOT';
+
+  }
+}

@@ -101,12 +101,13 @@
 
 .card-sh-product {
   overflow: hidden;
-  height: 100px;
+  height: 121px;
   background: white;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $light-beige;
 }
 
 .card-sh-product img {
@@ -115,26 +116,57 @@
   object-fit: cover;
 }
 
+
+.card-sh-product p {
+  // font-size: 12px;
+  // line-height: 1.4;
+  // opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-sh-product-infos {
+  padding: 16px;
+
+  a {
+    font-size: 0.8rem;
+  }
+
+  h2 > a {
+    font-size: 1.2rem;
+    font-family: 'GFS DIDOT';
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: black;
+    font-weight: 100;
+  }
+
+  h2 a, a, p {
+    color: black;
+  }
+
+  h2 a:hover, a:hover {
+    text-decoration: none;
+    color: $gray;
+  }
+}
+
 .card-sh-product h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-sh-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.card-sh-product .card-sh-product-infos {
-  padding: 16px;
-}
-
 .card-sh-product-order-details {
   height: 100%;
+
+  p {
+    color: black;
+    font-family: 'GFS DIDOT';
+
+  }
 }
 
 .card-sh-product-order-details-quantity {

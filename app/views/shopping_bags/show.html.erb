@@ -2,7 +2,7 @@
   <h1>Your Shopping Bag</h1>
   <div class="shopping-bag-container row">
   <!-- Products in Shopping Bag -->
-    <div class="shopping-bag-products col-12 col-md-8">
+    <div class="shopping-bag-products col-12 col-md-7">
 
       <% @products_in_bag.each do |sh_product| %>
         <div class="card-sh-product">
@@ -12,7 +12,7 @@
           <div class="card-sh-product-infos">
             <h2><%= link_to sh_product.product.name, product_path(sh_product.product) %></h2>
             <p><%= sh_product.product.category.name %> / <%= sh_product.product.size %></p>
-            <p>Color: <%= sh_product.product.color.name %></p>
+            <p class= "mt-0" >Color: <%= sh_product.product.color.name %></p>
             <%= link_to shopping_bag_product_path(sh_product), method: :delete do %>
               <i class="fas fa-trash"></i> Delete
             <% end %>
