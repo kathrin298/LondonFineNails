@@ -3,44 +3,36 @@
   <div class="shopping-bag-container row">
   <!-- Products in Shopping Bag -->
     <div class="shopping-bag-products col-12 col-md-7">
-
-      <% @products_in_bag.each do |sh_product| %>
-        <div class="card-sh-product">
-          <%= link_to product_path(sh_product.product) do %>
-            <%= cl_image_tag sh_product.product.photo.key, height: 100, width: 100, crop: :fill %>
-          <% end %>
-          <div class="card-sh-product-infos">
-            <h2><%= link_to sh_product.product.name, product_path(sh_product.product) %></h2>
-            <p><%= sh_product.product.category.name %> / <%= sh_product.product.size %></p>
-            <p class= "mt-0" >Color: <%= sh_product.product.color.name %></p>
-            <%= link_to shopping_bag_product_path(sh_product), method: :delete do %>
-              <i class="fas fa-trash"></i> Delete
+      <% if @products_in_bag.empty? %>
+        <p>You don't have any products in your bag. Select <a href=<%= products_path %>>products</a> now.</p>
+      <% else %>
+        <% @products_in_bag.each do |sh_product| %>
+          <div class="card-sh-product">
+            <%= link_to product_path(sh_product.product) do %>
+              <%= cl_image_tag sh_product.product.photo.key, height: 100, width: 100, crop: :fill %>
             <% end %>
-          </div>
-          <div class="card-sh-product-order-details ml-auto d-flex align-items-end flex-column">
-            <div class="card-sh-product-order-details-quantity btn btn-gold d-flex justify-content-between">
-              <% if sh_product.quantity > 1 %>
-                <%= link_to '-',
-                       shopping_bag_product_path(sh_product,
-                       :shopping_bag_product => {quantity: sh_product.quantity - 1}),
-                       method: :patch %>
+            <div class="card-sh-product-infos">
+              <h2><%= link_to sh_product.product.name, product_path(sh_product.product) %></h2>
+              <p><%= sh_product.product.category.name %> / <%= sh_product.product.size %></p>
+              <p class= "mt-0" >Color: <%= sh_product.product.color.name %></p>
+              <%= link_to shopping_bag_product_path(sh_product), method: :delete do %>
+                <i class="fas fa-trash"></i> Delete
               <% end %>
-
-              <p><%= sh_product.quantity %></p>
-
-              <%= link_to '+',
-                     shopping_bag_product_path(sh_product,
-                     :shopping_bag_product => {quantity: sh_product.quantity + 1}),
-                     method: :patch %>
             </div>
-            <p class="text-right mt-auto"><%= number_to_currency(sh_product.quantity * sh_product.product.price, locale: :de) %></p>
+            <div class="card-sh-product-order-details ml-auto d-flex align-items-end flex-column">
+              <div class="card-sh-product-order-details-quantity d-flex justify-content-between">
+                <%= render '/shopping_bag_products/form', shopping_bag_product: sh_product %>
+
+              </div>
+              <p class="text-right mt-auto"><%= number_to_currency(sh_product.quantity * sh_product.product.price, locale: :de) %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
 
     <!-- Shopping Bag Checkout Details -->
-    <div class="shopping-bag-checkout col-12 col-md-4">
+    <div class="shopping-bag-checkout col-12 col-md-4 sticky">
       <h1>Total</h1>
       <div class= "d-flex justify-content-between">
         <p>Subtotal (<%= @shopping_bag.total_items %> items)</p>

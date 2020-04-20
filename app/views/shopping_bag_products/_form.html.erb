@@ -1,0 +1,5 @@
+<%= simple_form_for(shopping_bag_product) do |f| %>
+  <%= f.input :quantity, collection: 1..10, label: false %>
+
+  <%= f.submit "Update", class: "btn-gold sh-button" %>
+<% end %>

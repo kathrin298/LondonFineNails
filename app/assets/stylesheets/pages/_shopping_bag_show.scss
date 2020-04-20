@@ -1,10 +1,12 @@
 .shopping-bag-container {
   display: flex;
+  height: fit-content;
 }
 
 .shopping-bag-checkout {
   padding: 0 16px;
   margin: 0 5px;
+  height: fit-content;
 
   p {
     font-weight: 100;
@@ -17,4 +19,10 @@
     font-family: 'GFS DIDOT';
 
   }
+}
+
+div.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 150px;
 }

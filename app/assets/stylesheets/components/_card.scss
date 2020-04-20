@@ -101,7 +101,7 @@
 
 .card-sh-product {
   overflow: hidden;
-  height: 121px;
+  // height: 121px;
   background: white;
   display: flex;
   align-items: center;
@@ -118,9 +118,6 @@
 
 
 .card-sh-product p {
-  // font-size: 12px;
-  // line-height: 1.4;
-  // opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
 }
@@ -167,9 +164,23 @@
     font-family: 'GFS DIDOT';
 
   }
+
+  .simple_form {
+    display: flex;
+  }
+
+  .sh-button {
+    height: 38px;
+    width: 80px;
+  }
+
+  .form-control {
+    border-color: $dark-gold;
+    background-image: none;
+  }
 }
 
 .card-sh-product-order-details-quantity {
-  width: 100px;
+  // width: 100px;
 }
 
