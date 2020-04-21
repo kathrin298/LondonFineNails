@@ -4,35 +4,39 @@
     font-weight: 300;
   }
 
-// ABOUT US SECTION
-.about-LFN-text, .about-Fine-text {
-  padding: 0 40px;
-  p {
-    text-align: justify;
-    color: black;
-    font-weight: 100;
-    font-size: 20px;
-  }
-}
+// // ABOUT US SECTION
+// .about-LFN-text, .about-Fine-text {
+//   // padding: 0 40px;
+//   margin: 20px auto;
+//   p {
+//     text-align: justify;
+//     color: black;
+//     font-weight: 100;
+//     font-size: 20px;
+//   }
+// }
 
-.background-color {
-  background-color: #F4CCCD;
-}
+// .background-color {
+//   background-color: #F4CCCD;
+// }
 
-.about-LFN, .about-Fine {
-  display: flex;
-  margin: 40px;
-}
+// .about-LFN, .about-Fine {
+//   display: flex;
+//   // margin: 20px 0;
+// }
 
-.about-LFN-image, .about-Fine-image {
-  background-color: white;
-  padding: 20px 20px 60px 20px;
-  box-shadow: 10px 10px 12px 0px rgba(150,150,150,0.3);
-  img {
-    border: 1px solid $gold;
-    width: 200px;
-  }
-}
+// .about-LFN-image, .about-Fine-image {
+//   background-color: white;
+//   padding: 2% 2% 6% 2%;
+//   // padding: 20px 20px 60px 20px;
+//   box-shadow: 10px 10px 12px 0px rgba(150,150,150,0.3);
+//   margin: 20px auto;
+//     height: 100%;
+//   img {
+//     border: 1px solid $gold;
+//     width: 100%;
+//   }
+// }
 
 // CONTACT SECTION
 .contact {

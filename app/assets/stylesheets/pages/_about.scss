@@ -1,0 +1,31 @@
+// ABOUT US SECTION
+.about-LFN-text, .about-Fine-text {
+  margin: 20px auto;
+  p {
+    text-align: justify;
+    color: black;
+    font-weight: 100;
+    font-size: 20px;
+  }
+}
+
+.background-color {
+  background-color: #F4CCCD;
+}
+
+.about-LFN, .about-Fine {
+  display: flex;
+}
+
+.about-LFN-image, .about-Fine-image {
+  background-color: white;
+  padding: 2% 2% 6% 2%;
+  box-shadow: 10px 10px 12px 0px rgba(150,150,150,0.3);
+  margin: 20px auto;
+  height: 100%;
+
+  img {
+    border: 1px solid $gold;
+    width: 100%;
+  }
+}
